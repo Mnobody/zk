@@ -18,7 +18,8 @@ return [
         '@public' => '@root/public',
         '@resources' => '@root/resources',
         '@runtime' => '@root/runtime',
-        '@views' => '@root/resources/views'
+        '@views' => '@root/resources/views',
+        '@src' => '@root/src',
     ],
 
     'yiisoft/cache-file' => [
@@ -121,6 +122,7 @@ return [
         // Entity directories list
         'entityPaths' => [
             '@src/Entity',
+            '@src/User',
         ],
         // Turn on cache usage for getting DB schema
         'cacheEnabled' => true,

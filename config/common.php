@@ -2,10 +2,13 @@
 
 declare(strict_types=1);
 
-use App\Contact\ContactMailer;
 use App\Service\Mailer;
-use Psr\Container\ContainerInterface;
 use Yiisoft\Aliases\Aliases;
+use App\Contact\ContactMailer;
+use Yiisoft\Yii\Web\Session\Session;
+use Psr\Container\ContainerInterface;
+use Yiisoft\Yii\Web\Session\SessionInterface;
+use Yiisoft\Auth\IdentityRepositoryInterface;
 
 /* @var array $params */
 
@@ -25,4 +28,21 @@ return [
             $params['mailer']['adminEmail']
         ));
     },
+
+    SessionInterface::class => [
+        '__class' => Session::class,
+        '__construct()' => [
+            $params['session']['options'] ?? [],
+            $params['session']['handler'] ?? null,
+        ],
+    ],
+
+    // User:
+    IdentityRepositoryInterface::class => static function (ContainerInterface $container) {
+        // instead of Cycle-based repository, any implementation could be used
+        return new \App\User\IdentityRepository(
+            $container->get(Cycle\ORM\ORMInterface::class)->getRepository(App\Entity\User::class)
+        );
+    },
+
 ];
