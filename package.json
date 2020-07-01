@@ -1,8 +1,9 @@
 {
     "license": "BSD-3-Clause",
     "dependencies": {
+        "@composer-asset/yiisoft--yii-bulma": "file:./vendor/foxy/composer-asset/yiisoft/yii-bulma",
         "@vizuaalog/bulmajs": "^0.11.0",
-        "bulma": "^0.8.2",
-        "bulma-helpers": "^0.3.11"
+        "bulma": "^0.9.0",
+        "bulma-helpers": "^0.3.12"
     }
 }
