@@ -99,4 +99,55 @@ return [
     'mailer' => [
         'adminEmail' => 'admin@example.com',
     ],
+
+    // Cycle DBAL config
+    'cycle.dbal' => [
+        'default' => 'default',
+        'aliases' => [],
+        'databases' => [
+            'default' => ['connection' => 'pgsql']
+        ],
+        'connections' => [
+            'pgsql' => [
+                'driver' => \Spiral\Database\Driver\Postgres\PostgresDriver::class,
+                'connection' => 'pgsql:host=localhost;dbname=zk',
+                'username' => '',
+                'password' => '',
+            ]
+        ],
+    ],
+    // Cycle common config
+    'cycle.common' => [
+        // Entity directories list
+        'entityPaths' => [
+            '@src/Entity',
+        ],
+        // Turn on cache usage for getting DB schema
+        'cacheEnabled' => true,
+        // Key to use for cache
+        'cacheKey' => 'Cycle-ORM-Schema',
+
+        // Additional generators, launched when computing schema
+        // Array of \Cycle\Schema\GeneratorInterface definitions
+        'generators' => [
+            // The following generator allows to apply schema changes to DB without migrations
+            // \Cycle\Schema\Generator\SyncTables::class,
+        ],
+
+        // \Cycle\ORM\PromiseFactoryInterface definition
+        'promiseFactory' => null, // use Promise objects
+        // ProxyFactory requires cycle/proxy-factory package
+        // 'promiseFactory' => \Cycle\ORM\Promise\ProxyFactory::class,
+
+        // SQL query logger
+        // \Psr\Log\LoggerInterface definition
+        'queryLogger' => null,
+    ],
+    // Cycle migration config
+    'cycle.migrations' => [
+        'directory' => '@root/migrations',
+        'namespace' => 'App\\Migration',
+        'table' => 'migration',
+        'safe' => false,
+    ],
 ];
