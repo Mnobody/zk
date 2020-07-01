@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f069409e91595680f070cd56b3921796",
+    "content-hash": "4817d5a8f6d060a009f7fa83750bd7b5",
     "packages": [
         {
             "name": "alexkart/curl-builder",
@@ -3362,6 +3362,207 @@
             "time": "2020-06-04T16:11:04+00:00"
         },
         {
+            "name": "yiisoft/data",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/data.git",
+                "reference": "d937aac3310b5b66be9cd3f1d39c7246c8442c03"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/data/zipball/d937aac3310b5b66be9cd3f1d39c7246c8442c03",
+                "reference": "d937aac3310b5b66be9cd3f1d39c7246c8442c03",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4",
+                "yiisoft/arrays": "^3.0@dev"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yiisoft\\Data\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Data providers",
+            "homepage": "http://www.yiiframework.com/",
+            "keywords": [
+                "data provider"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/yiisoft",
+                    "type": "github"
+                },
+                {
+                    "url": "https://opencollective.com/yiisoft",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2020-06-29T23:43:25+00:00"
+        },
+        {
+            "name": "yiisoft/db",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/db.git",
+                "reference": "37f1957933887a516ee0837ed12d3f334d14a749"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/db/zipball/37f1957933887a516ee0837ed12d3f334d14a749",
+                "reference": "37f1957933887a516ee0837ed12d3f334d14a749",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "ext-pdo": "*",
+                "php": "^7.4",
+                "psr/log": "^1.1",
+                "yiisoft/arrays": "^3.0@dev",
+                "yiisoft/cache": "^3.0@dev",
+                "yiisoft/data": "^3.0@dev",
+                "yiisoft/log": "^3.0@dev",
+                "yiisoft/profiler": "^3.0@dev",
+                "yiisoft/strings": "^3.0@dev"
+            },
+            "require-dev": {
+                "infection/infection": "^0.16.3",
+                "phan/phan": "^3.0.2",
+                "phpunit/phpunit": "^9.2",
+                "yiisoft/aliases": "^1.0",
+                "yiisoft/composer-config-plugin": "^1.0@dev",
+                "yiisoft/db-mssql": "@dev",
+                "yiisoft/db-mysql": "^3.0@dev",
+                "yiisoft/db-oracle": "@dev",
+                "yiisoft/db-pgsql": "^3.0@dev",
+                "yiisoft/db-sqlite": "^3.0@dev",
+                "yiisoft/di": "^3.0@dev",
+                "yiisoft/json": "^3.0@dev",
+                "yiisoft/log-target-file": "^3.0@dev"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                },
+                "config-plugin": {
+                    "tests": "config/tests.php"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yiisoft\\Db\\": "src",
+                    "Yiisoft\\Db\\Tests\\": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Yii DataBase Library",
+            "homepage": "http://www.yiiframework.com/",
+            "keywords": [
+                "database",
+                "yii"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/yiisoft",
+                    "type": "github"
+                },
+                {
+                    "url": "https://opencollective.com/yiisoft",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2020-06-10T20:58:27+00:00"
+        },
+        {
+            "name": "yiisoft/db-pgsql",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/db-pgsql.git",
+                "reference": "5dfe8b74a58b308758e2e6d0449d730b2334539b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/db-pgsql/zipball/5dfe8b74a58b308758e2e6d0449d730b2334539b",
+                "reference": "5dfe8b74a58b308758e2e6d0449d730b2334539b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.4",
+                "yiisoft/arrays": "^3.0@dev",
+                "yiisoft/db": "^3.0@dev",
+                "yiisoft/strings": "^3.0@dev"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.0",
+                "yiisoft/aliases": "^1.0",
+                "yiisoft/cache": "^3.0@dev",
+                "yiisoft/composer-config-plugin": "^1.0@dev",
+                "yiisoft/di": "^3.0@dev",
+                "yiisoft/json": "^3.0@dev",
+                "yiisoft/log": "^3.0@dev",
+                "yiisoft/log-target-file": "^3.0@dev"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                },
+                "config-plugin": {
+                    "params": "config/params.php",
+                    "common": "config/common.php",
+                    "tests": "config/tests.php"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yiisoft\\Db\\Pgsql\\": "src",
+                    "Yiisoft\\Db\\Pgsql\\Tests\\": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Yii DataBase PostgreSQL Extension",
+            "homepage": "http://www.yiiframework.com/",
+            "keywords": [
+                "pgsql",
+                "yii"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/yiisoft",
+                    "type": "github"
+                },
+                {
+                    "url": "https://opencollective.com/yiisoft",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2020-06-06T22:35:28+00:00"
+        },
+        {
             "name": "yiisoft/di",
             "version": "dev-master",
             "source": {
@@ -5032,6 +5233,81 @@
                 }
             ],
             "time": "2020-06-19T08:10:12+00:00"
+        },
+        {
+            "name": "yiisoft/yii-db-migration",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii-db-migration.git",
+                "reference": "5ae63bae63964f3da11da22dbdfc276bff4f3a2a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii-db-migration/zipball/5ae63bae63964f3da11da22dbdfc276bff4f3a2a",
+                "reference": "5ae63bae63964f3da11da22dbdfc276bff4f3a2a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4",
+                "yiisoft/aliases": "^1.0",
+                "yiisoft/arrays": "^3.0@dev",
+                "yiisoft/db": "^3.0@dev",
+                "yiisoft/files": "^3.0@dev",
+                "yiisoft/strings": "^3.0@dev",
+                "yiisoft/view": "^3.0@dev",
+                "yiisoft/yii-console": "^3.0@dev"
+            },
+            "require-dev": {
+                "infection/infection": "^0.16.3",
+                "phan/phan": "^3.0.2",
+                "phpunit/phpunit": "^9.2",
+                "yiisoft/composer-config-plugin": "^1.0@dev",
+                "yiisoft/db-sqlite": "^3.0@dev",
+                "yiisoft/di": " ^3.0@dev",
+                "yiisoft/event-dispatcher": "^3.0@dev",
+                "yiisoft/log": "^3.0@dev"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                },
+                "config-plugin": {
+                    "params": "config/params.php",
+                    "common": "config/common.php",
+                    "console": "config/console.php"
+                },
+                "config-plugin-dev": {
+                    "tests": [
+                        "$console",
+                        "config/tests.php"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yiisoft\\Yii\\Db\\Migration\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Yii Db Migration",
+            "homepage": "https://www.yiiframework.com/",
+            "keywords": [
+                "db",
+                "migration",
+                "yii"
+            ],
+            "funding": [
+                {
+                    "url": "https://opencollective.com/yiisoft",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2020-06-19T08:07:32+00:00"
         },
         {
             "name": "yiisoft/yii-debug",
@@ -8369,6 +8645,9 @@
         "yiisoft/assets": 20,
         "yiisoft/cache": 20,
         "yiisoft/cache-file": 20,
+        "yiisoft/composer-config-plugin": 20,
+        "yiisoft/db": 20,
+        "yiisoft/db-pgsql": 20,
         "yiisoft/di": 20,
         "yiisoft/event-dispatcher": 20,
         "yiisoft/form": 20,
@@ -8381,9 +8660,9 @@
         "yiisoft/view": 20,
         "yiisoft/widget": 20,
         "yiisoft/yii-bulma": 20,
+        "yiisoft/yii-db-migration": 20,
         "yiisoft/yii-debug": 20,
         "yiisoft/yii-web": 20,
-        "yiisoft/composer-config-plugin": 20,
         "roave/security-advisories": 20,
         "codeception/module-asserts": 20,
         "codeception/module-phpbrowser": 20
