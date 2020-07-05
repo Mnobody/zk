@@ -9,6 +9,7 @@ use Yiisoft\Aliases\Aliases;
 use Yiisoft\View\ViewContextInterface;
 use Yiisoft\View\WebView;
 use Yiisoft\Yii\Web\Data\DataResponseFactoryInterface;
+use Yiisoft\Yii\Web\User\User;
 
 use function array_merge;
 
@@ -17,19 +18,20 @@ abstract class AbstractController implements ViewContextInterface
     private WebView $webView;
     protected Aliases $aliases;
     protected DataResponseFactoryInterface $responseFactory;
+    protected User $user;
 
-    public function __construct(
-        Aliases $aliases,
-        DataResponseFactoryInterface $responseFactory,
-        WebView $webView
-    ) {
+    public function __construct(Aliases $aliases, DataResponseFactoryInterface $responseFactory, WebView $webView, User $user)
+    {
         $this->aliases = $aliases;
         $this->responseFactory = $responseFactory;
         $this->webView = $webView;
+        $this->user = $user;
     }
 
     protected function render(string $view, array $parameters = []): ResponseInterface
     {
+        $parameters = array_merge(['isGuest' => $this->user->isGuest()], $parameters);
+
         $content = $this->webView->render(
             '//main',
             array_merge(

@@ -40,9 +40,7 @@ return [
     // User:
     IdentityRepositoryInterface::class => static function (ContainerInterface $container) {
         // instead of Cycle-based repository, any implementation could be used
-        return new \App\User\IdentityRepository(
-            $container->get(Cycle\ORM\ORMInterface::class)->getRepository(App\Entity\User::class)
-        );
+        return $container->get(Cycle\ORM\ORMInterface::class)->getRepository(App\User\Entity\User::class);
     },
 
 ];

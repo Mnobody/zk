@@ -94,7 +94,7 @@ return [
     'app' => [
         'charset' => 'UTF-8',
         'language' => 'en',
-        'name' => 'My Project'
+        'name' => 'Zettelkasten'
     ],
 
     'mailer' => [
@@ -111,7 +111,7 @@ return [
         'connections' => [
             'pgsql' => [
                 'driver' => \Spiral\Database\Driver\Postgres\PostgresDriver::class,
-                'connection' => 'pgsql:host=localhost;dbname=zk',
+                'connection' => 'pgsql:host=localhost;dbname=zettelkasten',
                 'username' => '',
                 'password' => '',
             ]
@@ -121,11 +121,10 @@ return [
     'cycle.common' => [
         // Entity directories list
         'entityPaths' => [
-            '@src/Entity',
-            '@src/User',
+            '@src/User/Entity',
         ],
         // Turn on cache usage for getting DB schema
-        'cacheEnabled' => true,
+        'cacheEnabled' => false,
         // Key to use for cache
         'cacheKey' => 'Cycle-ORM-Schema',
 

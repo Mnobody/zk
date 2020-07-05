@@ -13,6 +13,7 @@ use Yiisoft\Html\Html;
  * @var Yiisoft\View\WebView $this
  * @var string|null $csrf
  * @var string $content
+ * @var bool $isGuest
  */
 
 $assetManager->register([
@@ -31,7 +32,7 @@ $this->setJsFiles($assetManager->getJsFiles());
         <body>
             <section class="hero is-fullheight is-light">
                 <div class="hero-head has-background-black">
-                    <?= $this->render('_menu') ?>
+                    <?= $this->render('_menu', ['isGuest' => $isGuest]) ?>
                 </div>
                 <?= FlashMessage::widget() ?>
                 <div class="hero-body is-light">

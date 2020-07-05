@@ -2,7 +2,7 @@
 
 namespace App\Migration;
 
-use Spiral\Migrations\Migration;
+use App\Migration\Migration;
 
 class OrmDefaultCea2f3ea784966b0eb7afd158744e570 extends Migration
 {
@@ -15,6 +15,7 @@ class OrmDefaultCea2f3ea784966b0eb7afd158744e570 extends Migration
         $schema->bigPrimary('id');
         $schema->string('username')->nullable(false);
         $schema->string('email')->nullable(false);
+        $schema->tinyInteger('status')->nullable(false);
         $schema->string('auth_key', 32)->nullable(false);
         $schema->string('password_hash')->nullable(false);
         $schema->string('password_reset_token');
