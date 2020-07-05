@@ -31,8 +31,6 @@ class RegisterService
         $user->setVerificationToken($this->token());
         $user->setPasswordHash($this->hasher->hash($password));
         $user->setPasswordResetToken($this->token());
-        $user->setCreatedAt(time());
-        $user->setUpdatedAt(time());
 
         $transaction = new Transaction($this->orm);
         $transaction->persist($user);

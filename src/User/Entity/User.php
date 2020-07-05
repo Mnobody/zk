@@ -7,11 +7,12 @@ namespace App\User\Entity;
 use Yiisoft\Auth\IdentityInterface;
 use Cycle\Annotated\Annotation\Entity;
 use Cycle\Annotated\Annotation\Column;
+use App\Cycle\EntityTimestampInterface;
 
 /**
- * @Entity(repository = "App\User\Repository\UserRepository")
+ * @Entity(repository = "App\User\Repository\UserRepository", mapper="App\Cycle\TimestampMapper")
  */
-class User implements IdentityInterface
+class User implements IdentityInterface, EntityTimestampInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_INACTIVE = 9;
