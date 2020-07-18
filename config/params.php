@@ -78,6 +78,11 @@ return [
             'url' => UrlGeneratorInterface::class,
             'urlMatcher' => UrlMatcherInterface::class,
         ],
+        'theme' => [
+            'pathMap' => [],
+            'basePath' => '',
+            'baseUrl' => '',
+        ]
     ],
 
     'yiisoft/yii-web' => [
@@ -101,54 +106,64 @@ return [
         'adminEmail' => 'admin@example.com',
     ],
 
-    // Cycle DBAL config
-    'cycle.dbal' => [
-        'default' => 'default',
-        'aliases' => [],
-        'databases' => [
-            'default' => ['connection' => 'pgsql']
-        ],
-        'connections' => [
-            'pgsql' => [
-                'driver' => \Spiral\Database\Driver\Postgres\PostgresDriver::class,
-                'connection' => 'pgsql:host=localhost;dbname=zettelkasten',
-                'username' => '',
-                'password' => '',
-            ]
-        ],
-    ],
-    // Cycle common config
-    'cycle.common' => [
-        // Entity directories list
-        'entityPaths' => [
-            '@src/User/Entity',
-        ],
-        // Turn on cache usage for getting DB schema
-        'cacheEnabled' => false,
-        // Key to use for cache
-        'cacheKey' => 'Cycle-ORM-Schema',
-
-        // Additional generators, launched when computing schema
-        // Array of \Cycle\Schema\GeneratorInterface definitions
-        'generators' => [
-            // The following generator allows to apply schema changes to DB without migrations
-            // \Cycle\Schema\Generator\SyncTables::class,
+    // Common Cycle config
+    'yiisoft/yii-cycle' => [
+        // Cycle DBAL config
+        'dbal' => [
+            /**
+             * SQL query logger
+             * You may use {@see \Yiisoft\Yii\Cycle\Logger\StdoutQueryLogger} class to pass log to
+             * stdout or any PSR-compatible logger
+             */
+            'query-logger' => null,
+            // Default database (from 'databases' list)
+            'default' => 'default',
+            'aliases' => [],
+            'databases' => [
+                'default' => ['connection' => 'pgsql']
+            ],
+            'connections' => [
+                'pgsql' => [
+                    'driver' => \Spiral\Database\Driver\Postgres\PostgresDriver::class,
+                    'connection' => 'pgsql:host=localhost;dbname=zettelkasten',
+                    'username' => '',
+                    'password' => '',
+                ]
+            ],
         ],
 
-        // \Cycle\ORM\PromiseFactoryInterface definition
-        'promiseFactory' => null, // use Promise objects
-        // ProxyFactory requires cycle/proxy-factory package
-        // 'promiseFactory' => \Cycle\ORM\Promise\ProxyFactory::class,
+        // Migrations config
+        'migrations' => [
+            'directory' => '@root/migrations',
+            'namespace' => 'App\\Migration',
+            'table' => 'migration',
+            'safe' => false,
+        ],
 
-        // SQL query logger
-        // \Psr\Log\LoggerInterface definition
-        'queryLogger' => null,
-    ],
-    // Cycle migration config
-    'cycle.migrations' => [
-        'directory' => '@root/migrations',
-        'namespace' => 'App\\Migration',
-        'table' => 'migration',
-        'safe' => false,
+        /**
+         * {@see \Yiisoft\Yii\Cycle\Factory\OrmFactory} config
+         * Either {@see \Cycle\ORM\PromiseFactoryInterface} implementation or null is specified.
+         * Docs: @link https://github.com/cycle/docs/blob/master/advanced/promise.md
+         */
+        'orm-promise-factory' => null,
+
+        /**
+         * A list of DB schema providers for {@see \Yiisoft\Yii\Cycle\Schema\SchemaManager}
+         * Providers are implementing {@see SchemaProviderInterface}.
+         * The configuration is an array of provider class names. Alternatively, you can specify provider class as key
+         * and its config as value:
+         */
+        'schema-providers' => [
+            \Yiisoft\Yii\Cycle\Schema\Provider\SimpleCacheSchemaProvider::class,
+            \Yiisoft\Yii\Cycle\Schema\Provider\FromConveyorSchemaProvider::class,
+        ],
+
+        /**
+         * {@see \Yiisoft\Yii\Cycle\Schema\Conveyor\AnnotatedSchemaConveyor} settings
+         * A list of entity directories. You can use {@see \Yiisoft\Aliases\Aliases} in paths.
+         */
+        'annotated-entity-paths' => [
+            '@src/User/Entity'
+        ],
     ],
 ];

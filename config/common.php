@@ -9,6 +9,8 @@ use Yiisoft\Yii\Web\Session\Session;
 use Psr\Container\ContainerInterface;
 use Yiisoft\Yii\Web\Session\SessionInterface;
 use Yiisoft\Auth\IdentityRepositoryInterface;
+use Yiisoft\Validator\ValidatorFactory;
+use Yiisoft\Validator\ValidatorFactoryInterface;
 
 /* @var array $params */
 
@@ -43,4 +45,7 @@ return [
         return $container->get(Cycle\ORM\ORMInterface::class)->getRepository(App\User\Entity\User::class);
     },
 
+    ValidatorFactoryInterface::class => [
+        '__class' => ValidatorFactory::class,
+    ],
 ];
