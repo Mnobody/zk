@@ -34,7 +34,7 @@
         "yiisoft/router-fastroute": "@dev",
         "yiisoft/view": "@dev",
         "yiisoft/widget": "@dev",
-        "yiisoft/yii-bulma": "@dev",
+        "yiisoft/yii-bootstrap5": "^3.0@dev",
         "yiisoft/yii-cycle": "^3.0@dev",
         "yiisoft/yii-debug": "@dev",
         "yiisoft/yii-event": "@dev",
