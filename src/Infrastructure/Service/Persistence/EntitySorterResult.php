@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Note\Helper;
+namespace App\Infrastructure\Service\Persistence;
 
 class EntitySorterResult
 {
-    private array $save = [];
-    private array $delete = [];
-    private array $new = [];
+    private array $save;
+    private array $delete;
+    private array $new;
 
     public function __construct(array $save = [], array $delete = [], array $new = [])
     {

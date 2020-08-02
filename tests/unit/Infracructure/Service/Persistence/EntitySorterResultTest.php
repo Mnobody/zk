@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\unit\Note\Helper;
+namespace App\Tests\unit\Infrastructure\Persistence;
 
 use PHPUnit\Framework\TestCase;
-use App\Note\Helper\EntitySorterResult;
+use App\Infrastructure\Service\Persistence\EntitySorterResult;
 
 class EntitySorterResultTest extends TestCase
 {

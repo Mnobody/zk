@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 use App\Domain\Collection\Collection;
 use App\Domain\Exception\ValidationException;
 use App\Domain\Collection\Validator\Validator;
-use App\Domain\Collection\Validator\Rule\NotEmptyRule;
+use App\Domain\Collection\Validator\Rule\RuleInterface;
 
 class CollectionTest extends TestCase
 {
@@ -24,8 +24,16 @@ class CollectionTest extends TestCase
     public function testValidationRulesAreExecuted()
     {
         $this->expectException(ValidationException::class);
-        new TestCollection([], new Validator([new NotEmptyRule]));
+        new TestCollection([], new Validator([new TestRule]));
     }
 }
 
 class TestCollection extends Collection {}
+
+class TestRule implements RuleInterface
+{
+    public function run(array $items): void
+    {
+        throw new ValidationException();
+    }
+}
