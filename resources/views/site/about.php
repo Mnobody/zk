@@ -9,12 +9,18 @@ $this->params['breadcrumbs'] = 'about';
 $this->setTitle('about');
 ?>
 
-<div class = "site-about">
+<div class="row mt-5">
+    <div class="col text-center">
 
-    <p>
-        This is the About page. You may modify the following file to customize its content.
-    </p>
+        <div class="site-about">
 
-    <code><?= __FILE__ ?></code>
+            <p>
+                This is the About page. You may modify the following file to customize its content.
+            </p>
 
+            <code><?= __FILE__ ?></code>
+
+        </div>
+
+    </div>
 </div>
