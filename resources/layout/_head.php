@@ -5,9 +5,9 @@ declare(strict_types=1);
 use Yiisoft\Html\Html;
 
 /**
- * @var \Yiisoft\View\WebView $this
- * @var \App\ApplicationParameters $applicationParameters
  * @var string|null $csrf
+ * @var Yiisoft\View\WebView $this
+ * @var App\ApplicationParameters $applicationParameters
  */
 ?>
 <head>

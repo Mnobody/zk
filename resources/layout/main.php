@@ -2,50 +2,43 @@
 
 declare(strict_types=1);
 
+use Yiisoft\Html\Html;
 use App\Asset\AppAsset;
 use App\Widget\FlashMessage;
-use App\Asset\CdnFontAwesomeAsset;
-use Yiisoft\Html\Html;
 
 /**
- * @var App\ApplicationParameters $applicationParameters
- * @var Yiisoft\Assets\AssetManager $assetManager
- * @var Yiisoft\View\WebView $this
- * @var string|null $csrf
  * @var string $content
- * @var bool $isGuest
+ * @var string|null $csrf
+ * @var Yiisoft\View\WebView $this
+ * @var Yiisoft\Yii\Web\User\User $user
+ * @var Yiisoft\Assets\AssetManager $assetManager
+ * @var Yiisoft\Router\UrlGeneratorInterface $url
+ * @var App\ApplicationParameters $applicationParameters
  */
 
-$assetManager->register([
-    AppAsset::class,
-    CdnFontAwesomeAsset::class,
-]);
-
+$assetManager->register([AppAsset::class]);
 $this->setCssFiles($assetManager->getCssFiles());
 $this->setJsFiles($assetManager->getJsFiles());
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Html::encode($applicationParameters->getLanguage()) ?>">
+<html lang="<?= Html::encode($applicationParameters->getLanguage()) ?>" class="h-100">
     <?= $this->render('_head', ['csrf' => $csrf]) ?>
     <?php $this->beginBody() ?>
-        <body>
-            <section class="hero is-fullheight is-light">
-                <div class="hero-head has-background-black">
-                    <?= $this->render('_menu', ['isGuest' => $isGuest]) ?>
-                </div>
-                <?= FlashMessage::widget() ?>
-                <div class="hero-body is-light">
-                    <div class="container has-text-centered">
-                        <?= $content ?>
-                    </div>
-                </div>
-                <div class="hero-footer has-background-black">
-                    <?= $this->render('_footer') ?>
-                </div>
-            </section>
-        </body>
+        <body class="d-flex flex-column h-100">
+            <header>
+                <?= $this->render('_menu', ['user' => $user]) ?>
+            </header>
 
+            <main class="flex-shrink-0">
+                <div class="container my-3">
+                    <?= FlashMessage::widget() ?>
+                    <?= $content ?>
+                </div>
+            </main>
+
+            <?= $this->render('_footer') ?>
+        </body>
     <?php $this->endBody() ?>
 </html>
 <?php $this->endPage() ?>
